@@ -1,14 +1,16 @@
 {
-    "display_name": "Cloze Overlapper",
+    "display_name": "Cloze Overlapper for 23.x+",
     "module_name": "cloze_overlapper",
     "repo_name": "cloze-overlapper",
     "ankiweb_id": "969733775",
-    "author": "Glutanimate",
-    "contact": "https://glutanimate.com",
-    "homepage": "https://github.com/glutanimate/cloze-overlapper",
-    "copyright_start": 2016,
+    "author": "saiyr",
+    "contact": "https://github.com/saiyr",
+    "homepage": "https://github.com/saiyr/cloze-overlapper",
+    "copyright_start": 2024,
     "tags": "workflow card-creation cloze lists enumerations",
-    "conflicts": [],
+    "conflicts": [
+        "969733775"
+    ],
     "targets": [
         "anki21"
     ]

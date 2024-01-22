@@ -33,9 +33,7 @@
 Qt resources
 """
 
-from ...libaddon.platform import ANKI20
-
-if ANKI20:
-    from .anki20 import *  # noqa: F401
-else:
-    from .anki21 import *  # noqa: F401
+try:
+    from .icons.qt6 import *
+except ImportError:
+    from .icons.qt5 import *

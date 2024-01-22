@@ -63,21 +63,18 @@ class ADDON(object):
     AUTHORS = (
         {"name": "Aristotelis P. (Glutanimate)", "years": "2016-2019",
          "contact": "https://glutanimate.com"},
+        {"name": "Daniel T. (saiyr)", "years": "2024",
+         "contact": "https://github.com/saiyr"},
     )
-    AUTHOR_MAIL = "ankiglutanimate@gmail.com"
+    AUTHOR_MAIL = "me@saiyr.dev"
     LIBRARIES = ()
     CONTRIBUTORS = ("zjosua", )
     SPONSORS = ()
     MEMBERS_CREDITED = MEMBERS_CREDITED
     MEMBERS_TOP = MEMBERS_TOP
     LINKS = {
-        "patreon": "https://www.patreon.com/glutanimate",
-        "bepatron": "https://www.patreon.com/bePatron?u=7522179",
-        "coffee": "http://ko-fi.com/glutanimate",
         "description": "https://ankiweb.net/shared/info/{}".format(ID),
         "rate": "https://ankiweb.net/shared/review/{}".format(ID),
-        "twitter": "https://twitter.com/glutanimate",
-        "youtube": "https://www.youtube.com/c/glutanimate",
         "help": "https://github.com/glutanimate/review-heatmap/wiki"
     }
 
