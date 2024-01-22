@@ -110,8 +110,8 @@ def initializeAddon():
 
     def delayedInit():
         initializeModels()
-        from anki import utils
-        if utils.pointVersion() < 231000:
+        from . import utils
+        if utils.can_override_scheduler():
             from .sched import initializeScheduler
             initializeScheduler()
 

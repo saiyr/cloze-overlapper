@@ -36,8 +36,8 @@ Common reusable utilities.
 from __future__ import (absolute_import, division,
                         print_function, unicode_literals)
 
+from anki import utils
 from aqt.utils import showWarning, tooltip
-
 
 def warnUser(reason, text):
     showWarning(("<b>%s Error</b>: " % reason) +
@@ -46,3 +46,7 @@ def warnUser(reason, text):
 
 def showTT(title, text, period=3000, parent=None):
     tooltip("<b>%s</b>: %s" % (title, text), period, parent)
+
+
+def can_override_scheduler():
+    return utils.pointVersion() < 231000
