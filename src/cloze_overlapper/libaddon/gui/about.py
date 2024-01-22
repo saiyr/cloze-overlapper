@@ -69,16 +69,11 @@ html_template = """\
     {authors_string}
     {libs_string}
     
-    <p><img src="qrc:/{qrc_prefix}/icons/heart_small.svg"/><span style=" font-weight:600;"> Thank you!</span></p>
-    <p>My heartfelt thanks go out to everyone who has <b>supported</b> this add-on through their tips,
-        contributions, or any other means. You guys rock!</p>
-    <p>In particular I would like to thank all of the awesome people who support me
-        on <b><a href="https://www.patreon.com/glutanimate">Patreon</a></b>, including:</p>
-    <div style="color:#aa2a4c;">{members_string}</div>
-    <p><i>Want to be listed here?
-        <b><a href="https://www.patreon.com/bePatron?u=7522179">Pledge your support on Patreon now</a></b>
-        to receive all kinds of exclusive goodies!
-    </i></p>
+    <p>This is a minimal update of the original Cloze Overlapper plugin to work
+        on newer versions. The original author still develops a version, which
+        you can access on
+        <a href="https://www.patreon.com/glutanimate">Patreon</a>. No guarantee
+        is made of feature compatibility with this other version.</p>
     
     <p><span style="font-weight:600;">License</span></p>
     <p><i>{display_name}</i> is <b>free and open-source</b> software. The add-on code that runs within
