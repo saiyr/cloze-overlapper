@@ -42,6 +42,7 @@ from anki.utils import stripHTML
 from .libaddon.anki.configmanager import ConfigManager
 
 from .consts import *
+from . import utils
 
 
 def parseNoteSettings(html):
@@ -111,7 +112,11 @@ config_defaults = {
         "dflts": [1, 1, 0],
         "dflto": [False, False, False, False],
         "flds": OLC_FLDS,
-        "sched": [True, True, False],
+        "sched": [
+            utils.can_override_scheduler(),
+            utils.can_override_scheduler(),
+            False
+        ],
         "olmdls": [OLC_MODEL],
         "version": ADDON.VERSION
     }
