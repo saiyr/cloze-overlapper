@@ -106,12 +106,14 @@ def initializeAddon():
     from .gui import initializeQtResources
     from .template import initializeModels
     from .editor import initializeEditor
-    from .sched import initializeScheduler
     from .reviewer import initializeReviewer
 
     def delayedInit():
         initializeModels()
-        initializeScheduler()
+        from anki import utils
+        if utils.pointVersion() < 231000:
+            from .sched import initializeScheduler
+            initializeScheduler()
 
     addHook("profileLoaded", delayedInit)
 
