@@ -33,9 +33,7 @@
 Qt dialog forms
 """
 
-from ...libaddon.platform import ANKI20
-
-if ANKI20:
-    from .anki20 import *  # noqa: F401
-else:
-    from .anki21 import *  # noqa: F401
+try:
+    from .qt6 import *  # noqa: F401
+except ImportError:
+    from .qt5 import *  # noqa: F401
