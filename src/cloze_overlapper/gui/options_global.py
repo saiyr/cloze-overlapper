@@ -47,6 +47,7 @@ from ..config import config
 from ..consts import *
 
 from .forms import settings_global
+from .. import utils
 
 
 class OlcOptionsGlobal(QDialog):
@@ -94,6 +95,9 @@ class OlcOptionsGlobal(QDialog):
             cb.setChecked(values["dflto"][idx])
         for key, fnedit in self.fndict:
             fnedit.setText(values["flds"][key])
+        if not utils.can_override_scheduler():
+            for item in self.fsched:
+                item.setEnabled(False)
 
     def onAccept(self):
         reset_req = False
