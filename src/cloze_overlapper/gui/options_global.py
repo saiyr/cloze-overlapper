@@ -68,8 +68,14 @@ class OlcOptionsGlobal(QDialog):
     def setupUI(self):
         self.f.buttonBox.accepted.connect(self.onAccept)
         self.f.buttonBox.rejected.connect(self.onReject)
-        self.f.buttonBox.button(
-            QDialogButtonBox.RestoreDefaults).clicked.connect(self.onRestore)
+        try:
+            self.f.buttonBox.button(
+                QDialogButtonBox.StandardButton.RestoreDefaults
+            ).clicked.connect(self.onRestore)
+        except AttributeError:
+            self.f.buttonBox.button(
+                QDialogButtonBox.RestoreDefaults
+            ).clicked.connect(self.onRestore)
         about_string = get_about_string()
         self.f.htmlAbout.setHtml(about_string)
 
@@ -141,7 +147,7 @@ class OlcOptionsGlobal(QDialog):
 def invokeOptionsGlobal():
     """Invoke global config dialog"""
     dialog = OlcOptionsGlobal(mw)
-    return dialog.exec_()
+    return dialog.exec()
 
 
 def initializeOptions():
