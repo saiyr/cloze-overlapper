@@ -69,7 +69,7 @@ class QKeyGrabButton(QPushButton):
     def grabKey(self):
         """Invoke key grabber"""
         grabber = QKeyGrab(self.parent())
-        ret = grabber.exec_()
+        ret = grabber.exec()
         if ret != 1:
             return
         key_string = grabber.key_string
