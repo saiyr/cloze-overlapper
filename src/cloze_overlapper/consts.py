@@ -57,7 +57,7 @@ class ADDON(object):
     """
     NAME = "Cloze Overlapper"
     MODULE = "cloze_overlapper"
-    ID = "969733775"
+    ID = "1784155610"
     VERSION = __version__
     LICENSE = "GNU AGPLv3"
     AUTHORS = (

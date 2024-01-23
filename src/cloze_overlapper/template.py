@@ -62,7 +62,7 @@ license (https://creativecommons.org/licenses/by-sa/4.0/). This only
 applies to the card template, not the contents of your notes.
 
 Get Cloze Overlapper for Anki at:
-https://ankiweb.net/shared/info/969733775
+https://ankiweb.net/shared/info/1784155610
 -->
 
 <div class="front">

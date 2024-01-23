@@ -5,7 +5,7 @@
 <p align="center">
 <a title="Latest (pre-)release" href="https://github.com/glutanimate/cloze-overlapper/releases"><img src ="https://img.shields.io/github/release-pre/glutanimate/cloze-overlapper.svg?colorB=brightgreen"></a>
 <a title="License: GNU AGPLv3" href="https://github.com/glutanimate/cloze-overlapper/blob/master/LICENSE"><img  src="https://img.shields.io/badge/license-GNU AGPLv3-green.svg"></a>
-<a title="Rate on AnkiWeb" href="https://ankiweb.net/shared/info/969733775"><img src="https://glutanimate.com/logos/ankiweb-rate.svg"></a>
+<a title="Rate on AnkiWeb" href="https://ankiweb.net/shared/info/1784155610"><img src="https://glutanimate.com/logos/ankiweb-rate.svg"></a>
 <br>
 <a title="Buy me a coffee :)" href="https://ko-fi.com/X8X0L4YV"><img src="https://img.shields.io/badge/ko--fi-contribute-%23579ebd.svg"></a>
 <a title="Support me on Patreon :D" href="https://www.patreon.com/bePatron?u=7522179"><img src="https://img.shields.io/badge/patreon-support-%23f96854.svg"></a>
@@ -54,7 +54,7 @@ Due to working with the formatting tools that Anki provides itself, the cards ge
 
 #### AnkiWeb <!-- omit in toc -->
 
-The easiest way to install Cloze Overlapper is through [AnkiWeb](https://ankiweb.net/shared/info/969733775).
+The easiest way to install Cloze Overlapper is through [AnkiWeb](https://ankiweb.net/shared/info/1784155610).
 
 #### Manual installation <!-- omit in toc -->
 
