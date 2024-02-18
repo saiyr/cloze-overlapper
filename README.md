@@ -3,13 +3,9 @@
 <h2 align="center">Cloze Overlapper for Anki</h2>
 
 <p align="center">
-<a title="Latest (pre-)release" href="https://github.com/glutanimate/cloze-overlapper/releases"><img src ="https://img.shields.io/github/release-pre/glutanimate/cloze-overlapper.svg?colorB=brightgreen"></a>
-<a title="License: GNU AGPLv3" href="https://github.com/glutanimate/cloze-overlapper/blob/master/LICENSE"><img  src="https://img.shields.io/badge/license-GNU AGPLv3-green.svg"></a>
-<a title="Rate on AnkiWeb" href="https://ankiweb.net/shared/info/1784155610"><img src="https://glutanimate.com/logos/ankiweb-rate.svg"></a>
+<a title="Latest (pre-)release" href="https://github.com/saiyr/cloze-overlapper/releases"><img src ="https://img.shields.io/github/release-pre/saiyr/cloze-overlapper.svg?colorB=brightgreen"></a>
+<a title="License: GNU AGPLv3" href="https://github.com/saiyr/cloze-overlapper/blob/master/LICENSE"><img  src="https://img.shields.io/badge/license-GNU AGPLv3-green.svg"></a>
 <br>
-<a title="Buy me a coffee :)" href="https://ko-fi.com/X8X0L4YV"><img src="https://img.shields.io/badge/ko--fi-contribute-%23579ebd.svg"></a>
-<a title="Support me on Patreon :D" href="https://www.patreon.com/bePatron?u=7522179"><img src="https://img.shields.io/badge/patreon-support-%23f96854.svg"></a>
-<a title="Follow me on Twitter" href="https://twitter.com/intent/user?screen_name=glutanimate"><img src="https://img.shields.io/twitter/follow/glutanimate.svg"></a>
 </p>
 
 > List memorization made easy!
@@ -58,37 +54,11 @@ The easiest way to install Cloze Overlapper is through [AnkiWeb](https://ankiweb
 
 #### Manual installation <!-- omit in toc -->
 
-Please click on the entry corresponding to your Anki version:
-
-**Note: Pre-compiled test builds for Anki 2.1 are now available [on my Patreon](https://www.patreon.com/glutanimate/posts?tag=Cloze%20Overlapper).** These will become public once testing is complete.
-
-<details>
-
-<summary><i>Anki 2.1</i></summary>
-
-1. Make sure you have the [latest version](https://apps.ankiweb.net/#download) of Anki 2.1 installed. Earlier releases (e.g. found in various Linux distros) do not support `.ankiaddon` packages.
-2. Download the latest `.ankiaddon` package from [my Patreon](https://www.patreon.com/glutanimate/posts?tag=Cloze%20Overlapper)
+1. Make sure you have the [latest version](https://apps.ankiweb.net/#download) of Anki installed. Earlier releases (e.g. found in various Linux distros) do not support `.ankiaddon` packages.
+2. Download the latest `.ankiaddon` package from [the releases page](https://github.com/saiyr/cloze-overlapper/releases)
 3. From Anki's main window, head to *Tools* → *Add-ons*
 4. Drag-and-drop the `.ankiaddon` package onto the add-ons list
 5. Restart Anki
-
-</details>
-
-<details>
-
-<summary><i>Anki 2.0</i></summary>
-
-1. Go to *Tools* → *Add-ons* → *Open add-ons folder*
-2. Find and delete the `Cloze Overlapper.py` file if it already exists.
-3. See if you can find a `cloze_overlapper` folder. If so:
-    1. If the folder contains a `meta.json` file, copy the file to a safe location. This will allow you to preserve your current settings.
-    2. Proceed to delete the `cloze_overlapper` folder
-4. Download and extract the latest Anki 2.0 add-on release from [my Patreon](https://www.patreon.com/glutanimate/posts?tag=Cloze%20Overlapper)
-5. Move the extracted `Cloze Overlapper.py` and `cloze_overlapper` into the add-ons folder
-6. Optional: Place the `meta.json` file back into the directory if you created a copy beforehand.
-7. Restart Anki
-
-</details>
 
 ### Documentation
 
@@ -98,7 +68,7 @@ The use of the add-on is documented in the [Wiki section](https://github.com/Glu
 
 With [Anki add-on builder](https://github.com/glutanimate/anki-addon-builder/) installed:
 
-    git clone https://github.com/glutanimate/cloze-overlapper.git
+    git clone https://github.com/saiyr/cloze-overlapper.git
     cd cloze-overlapper
     aab build
 
@@ -114,7 +84,7 @@ Contributions are welcome! Please review the [contribution guidelines](./CONTRIB
 
 ### License and Credits
 
-*Cloze Overlapper* is *Copyright © 2019 [Aristotelis P.](https://glutanimate.com/) (Glutanimate)*
+*Cloze Overlapper* is *Copyright © 2019 [Aristotelis P.](https://glutanimate.com/) (Glutanimate), 2024 Daniel T. (saiyr)*
 
 With code contributions from: [zjosua](https://github.com/zjosua), (Thank you!)
 
@@ -128,10 +98,3 @@ I'd also like to thank:
 Cloze Overlapper is free and open-source software. The add-on code that runs within Anki is released under the GNU AGPLv3 license, extended by a number of additional terms. For more information please see the [LICENSE](https://github.com/glutanimate/cloze-overlapper/blob/master/LICENSE) file that accompanied this program.
 
 This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY.
-
-----
-
-<b>
-<div align="center">The continued development of this add-on is made possible <br>thanks to my <a href="https://www.patreon.com/glutanimate">Patreon</a> and <a href="https://ko-fi.com/X8X0L4YV">Ko-Fi</a> supporters.
-<br>You guys rock ❤️ !</div>
-</b>
