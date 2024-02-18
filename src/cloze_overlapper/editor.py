@@ -58,6 +58,8 @@ from .utils import showTT
 
 # Hotkey definitions
 
+olc_hotkey_cloze_deletion = "Ctrl+Shift+C"
+olc_hotkey_append_cloze_deletion = "Ctrl+Alt+Shift+C"
 olc_hotkey_generate = "Alt+Shift+C"  # Cloze generation/preview
 olc_hotkey_options = "Alt+Shift+O"  # Note-specific settings
 olc_hotkey_cremove = "Alt+Shift+U"  # Remove selected clozes
@@ -183,24 +185,44 @@ def refreshEditor(editor):
     focus = editor.currentField or 0
     editor.web.eval("focusField({});".format(focus))
 
-# Button callbacks
 
-def onInsertCloze(self, _old):
-    """Handles cloze-wraps when the add-on model is active"""
-    if not checkModel(self.note.model(), fields=False, notify=False):
-        return _old(self)
-    # find the highest existing cloze
+OC_CLOZE_RE = r"\[\[oc(\d+)::"
+ANKI_CLOZE_RE = r"\{\{c(\d+)::"
+
+
+def insert_cloze_helper(
+        self,
+        find_pattern: str,
+        reuse: bool,
+        wrap_left: str,
+        wrap_right: str):
     highest = 0
     for name, val in self.note.items():
-        m = re.findall("\[\[oc(\d+)::", val)
+        m = re.findall(find_pattern, val)
         if m:
             highest = max(highest, sorted([int(x) for x in m])[-1])
-    # reuse last?
-    if not self.mw.app.keyboardModifiers() & Qt.AltModifier:
+    if not reuse:
         highest += 1
     # must start at 1
     highest = max(1, highest)
-    self.web.eval("wrap('[[oc%d::', ']]');" % highest)
+    wrap_call = "wrap('{}', '{}');".format(wrap_left, wrap_right)
+    self.web.eval(wrap_call % highest)
+
+# Button callbacks
+
+def onCloze(self, reuse: bool):
+    if not checkModel(self.note.model(), fields=False, notify=False):
+        return insert_cloze_helper(self, ANKI_CLOZE_RE, reuse, "{{c%d::", "}}")
+    return insert_cloze_helper(self, OC_CLOZE_RE, reuse, "[[oc%d::", "]]")
+
+def onInsertCloze(self):
+    """Handles cloze-wraps when the add-on model is active"""
+    return onCloze(self, False)
+
+
+def onAppendCloze(self):
+    """Handles cloze-wraps when the add-on model is active"""
+    return onCloze(self, True)
 
 
 @editorSaveThen
@@ -218,10 +240,10 @@ To make a cloze deletion on an existing note, you need to change it \
 to a cloze type first, via Edit>Change Note Type.""")
             return
     if checkModel(model, fields=False, notify=False):
-        cloze_re = "\[\[oc(\d+)::"
+        cloze_re = OC_CLOZE_RE
         wrap_pre, wrap_post = "[[oc", "]]"
     else:
-        cloze_re = "\{\{c(\d+)::"
+        cloze_re = ANKI_CLOZE_RE
         wrap_pre, wrap_post = "{{c", "}}"
     # find the highest existing cloze
     highest = 0
@@ -357,11 +379,17 @@ def onAddNote(addcards, note, _old):
 # BUTTONS / HOTKEYS
 
 icon_path = os.path.join(PATH_ADDON, "gui", "resources", "icons")
+icon_cloze_deletion = os.path.join(icon_path, "oc_anki_contain_plus.svg")
+icon_append_cloze_deletion = os.path.join(icon_path, "oc_mdi_contain.svg")
 icon_generate = os.path.join(icon_path, "oc_generate.svg")
 icon_options = os.path.join(icon_path, "oc_options.svg")
 icon_remove = os.path.join(icon_path, "oc_remove.svg")
 
 
+tooltip_cloze_deletion = "Overlapping cloze deletion ({})".format(
+    olc_hotkey_cloze_deletion)
+tooltip_append_cloze_deletion = "Append overlapping cloze deletion({})".format(
+    olc_hotkey_append_cloze_deletion)
 tooltip_generate = "Generate overlapping clozes ({})".format(
     olc_hotkey_generate)
 tooltip_options = "Overlapping cloze options ({})".format(
@@ -393,22 +421,25 @@ def onSetupEditorButtons20(editor):
     setupAdditionalHotkeys(editor)
 
 
-def onSetupEditorButtons21(buttons, editor):
+def onSetupEditorButtons21(buttons: list[str], editor):
     """Add buttons and hotkeys"""
 
-    # bind to editor.olc_hotkey_generate because anki21 passes
-    # editor instance by default
-    b = editor.addButton(icon_generate, "OlCloze", onOlClozeButton,
-                         tooltip_generate, keys=olc_hotkey_generate)
-    buttons.append(b)
-
-    b = editor.addButton(icon_options, "OlOptions", onOlOptionsButton,
-                         tooltip_options, keys=olc_hotkey_options)
-    buttons.append(b)
-
-    b = editor.addButton(icon_remove, "RemoveClozes", onRemoveClozes,
-                         tooltip_remove, keys=olc_hotkey_cremove)
-    buttons.append(b)
+    buttons.extend([
+        editor.addButton(icon_cloze_deletion, "OlClozeDeletion",
+                         onInsertCloze, tooltip_cloze_deletion,
+                         keys=olc_hotkey_cloze_deletion),
+        editor.addButton(icon_append_cloze_deletion, "OlAppendClozeDeletion",
+                         onAppendCloze, tooltip_append_cloze_deletion,
+                         keys=olc_hotkey_append_cloze_deletion),
+        # bind to editor.olc_hotkey_generate because anki21 passes
+        # editor instance by default
+        editor.addButton(icon_generate, "OlCloze", onOlClozeButton,
+                         tooltip_generate, keys=olc_hotkey_generate),
+        editor.addButton(icon_options, "OlOptions", onOlOptionsButton,
+                         tooltip_options, keys=olc_hotkey_options),
+        editor.addButton(icon_remove, "RemoveClozes", onRemoveClozes,
+                         tooltip_remove, keys=olc_hotkey_cremove),
+    ])
 
     setupAdditionalHotkeys(editor)
 

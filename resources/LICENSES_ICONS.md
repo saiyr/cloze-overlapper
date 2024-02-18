@@ -20,6 +20,23 @@ They are Copyright (c) 2018 Twitter, Inc and other contributors, with modificati
 
 Adapted under the [Creative Commons Attribution-ShareAlike 4.0 International license](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode) and redistributed under the same variation of GNU Affero General Public License as the source code of this program (see LICENSE file).
 
+#### Material Design Icons
+
+`oc_mdi_contain.svg` is sourced from
+[Pictogrammers' "contain" Material Design Icon](https://pictogrammers.com/library/mdi/icon/contain/).
+
+**License**
+
+Licensed under [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+
+#### Anki Icons
+
+`oc_anki_contain_plus.svg` is sourced from the Anki repository.
+
+**License**
+
+Licensed under the [3-Clause BSD License](https://github.com/ankitects/anki/blob/main/CONTRIBUTORS).
+
 #### Other Icons
 
 **Copyright**
