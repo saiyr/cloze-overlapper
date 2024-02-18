@@ -2,15 +2,28 @@
 
 All notable changes to Cloze Overlapper will be documented here. You can click on each release number to be directed to a detailed log of all code commits for that particular release. The download links will direct you to the GitHub release page, allowing you to manually install a release if you want.
 
-If you enjoy Cloze Overlapper, please consider supporting my work on Patreon, or by buying me a cup of coffee :coffee::
+## [1.0.1] - 2024-02-17
 
-<p align="center">
-<a href="https://www.patreon.com/glutanimate" rel="nofollow" title="Support me on Patreon 😄"><img src="https://glutanimate.com/logos/patreon_button.svg"></a>      <a href="https://ko-fi.com/X8X0L4YV" rel="nofollow" title="Buy me a coffee 😊"><img src="https://glutanimate.com/logos/kofi_button.svg"></a>
-</p>
+### Added
 
-:heart: My heartfelt thanks goes out to everyone who has supported this add-on through their tips, contributions, or any other means (you know who you are!). All of this would not have been possible without you. Thank you for being awesome!
+- Dedicated buttons for cloze deletions are added in the addon buttons section. They are identical
+  in appearance to the standard cloze buttons, but work for Cloze Overlapper, using the same
+  keyboard shortcuts.
 
-## [Unreleased]
+## [1.0.0] - 2024-01-22
+
+### Added
+
+- Qt6 support
+
+### Changed
+
+- Option to override sibling spacing is disabled for new Anki versions. The scheduler no longer
+  allows this. These can be configured in deck options.
+
+### Fixed
+
+- Anki 23.x support
 
 ## [0.4.0-alpha.0] - 2019-02-01
 

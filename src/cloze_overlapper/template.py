@@ -47,7 +47,7 @@ from .consts import *
 card_front = """\
 <!--template
 ######## CLOZE OVERLAPPER DEFAULT TEMPLATE START ########
-version: 1.0.0
+version: 1.0.1
 -->
 
 <!--
@@ -130,7 +130,7 @@ template-->
 card_back = """\
 <!--template
 ######## CLOZE OVERLAPPER DEFAULT TEMPLATE START ########
-version: 1.0.0
+version: 1.0.1
 -->
 
 <!--
@@ -238,7 +238,7 @@ template-->
 card_css = """\
 /*template
 ######## CLOZE OVERLAPPER DEFAULT TEMPLATE START ########
-version: 1.0.0
+version: 1.0.1
 */
 
 /*
