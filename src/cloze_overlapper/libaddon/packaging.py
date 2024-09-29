@@ -41,6 +41,7 @@ from __future__ import (absolute_import, division,
 
 import sys
 import os
+from importlib import abc, util
 
 from .platform import ANKI20
 
@@ -53,7 +54,7 @@ __all__ = [
 # Resolving version-specific module imports
 ######################################################################
 
-class VersionSpecificImporter:
+class VersionSpecificImporter(abc.MetaPathFinder, abc.Loader):
     """
     A PEP 302 meta path importer for finding the right vendored package
     among bundled packages specific to Anki 2.1, 2.0, and packages common
@@ -89,6 +90,14 @@ class VersionSpecificImporter:
         yield ".".join((self.vendor_pkg, self.module_dir, ""))
         yield ".".join((self.vendor_pkg, "common", ""))
         yield ''
+
+    def find_spec(self, fullname, path, target=None):
+        root, base, target = fullname.partition(self.root_name + '.')
+        if root:
+            return
+        if not any(map(target.startswith, self.managed_imports)):
+            return
+        return util.spec_from_loader(fullname, self)
 
     def find_module(self, fullname, path=None):
         """
