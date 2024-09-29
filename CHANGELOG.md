@@ -2,6 +2,10 @@
 
 All notable changes to Cloze Overlapper will be documented here. You can click on each release number to be directed to a detailed log of all code commits for that particular release. The download links will direct you to the GitHub release page, allowing you to manually install a release if you want.
 
+## [1.0.2] - 2024-09-28
+
+- Support for Arch AUR is fixed by updating support for Python 3.12.
+
 ## [1.0.1] - 2024-02-17
 
 ### Added
